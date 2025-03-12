@@ -1,16 +1,20 @@
-# Use an official Golang image as a parent image
-FROM golang:1.16
-# Set the working directory to /app
-WORKDIR /app
-# Copy the current directory contents into the container at /app
-COPY . .
+# use official Golang image
+FROM golang:1.16.3-alpine3.13
 
-# Download and Install the dependencies
+# set working directory
+WORKDIR /app
+
+# Copy the source code
+COPY . . 
+
+# Download and install the dependencies
 RUN go get -d -v ./...
 
 # Build the Go app
 RUN go build -o api .
-# Expose port 8080 to the outside world
+
+#EXPOSE the port
 EXPOSE 8000
+
 # Run the executable
 CMD ["./api"]
