@@ -1,9 +1,9 @@
-version: '3.9'
+version: '3.8'
 
 services:
   go-app:
     container_name: go-app
-    image: francescoxx/go-app:1.0.0
+    image: anthonygilbertt/go-app:1.0.0
     build: .
     environment:
       DATABASE_URL: "host=go_db user=postgres password=postgres dbname=postgres sslmode=disable"
